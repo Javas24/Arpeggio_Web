@@ -1,0 +1,293 @@
+/* General styling */
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #eee;
+    overflow-y: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background-color: #FFF;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    overflow: auto;
+    height: 60vh;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.input-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: #FFF;
+    border: 1px solid #333;
+    transform: translate(-50%, -50%);
+    padding: 20px 30px;
+    border-radius: 5px;
+    min-width: 280px;
+}
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-form .space-between {
+    margin: 20px 0;
+}
+
+.input-form .space-between .submit-button {
+    color: #F9F9F9;
+    background-color: #3C91E6;
+    width: fit-content;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.input-form .space-between a.cancel-button {
+    text-decoration: none;
+    color: #342E37;
+    background-color: #F9F9F9;
+    border: 1px solid #342E37;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: .3s;
+    font-weight: bold;
+}
+
+.input-form .space-between a.cancel-button:hover {
+    letter-spacing: 2px;
+}
+
+.input-link {
+    text-decoration: none;
+    color: #0056b3;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="file"],
+textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #3C91E6;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button[type="submit"]:hover {
+    letter-spacing: 2px;
+}
+
+.error {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Navbar styling */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #F9F9F9;
+    overflow: hidden;
+    padding: 10px;
+    margin: 0;
+}
+
+nav .menu-nav,
+nav .log-out-nav {
+    display: flex;
+    gap: 5px;
+    margin: 0 2.5%;
+}
+
+nav .menu-nav {
+    gap: 15px;
+}
+
+nav .log-out-nav a {
+    color: #F9F9F9;
+    background-color: #3C91E6;
+    border-radius: 5px;
+}
+
+nav a {
+    display: block;
+    color: #342E37;
+    text-align: center;
+    padding: 14px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .3s;
+    letter-spacing: 1px;
+}
+
+nav a:hover {
+    background-color: #3C91E6;
+    color: #F9F9F9;
+}
+
+nav .log-out-nav a:hover {
+    background-color: #F9F9F9;
+    color: #342E37;
+    border: 1px solid #342E37;
+}
+
+/* Modal styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #FFF;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #AAA;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+tbody td img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    display: block;
+}
+
+td {
+    padding: 15px;
+}
+
+th {
+    background-color: #F2F2F2;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #F2F2F2;
+}
+
+tr:hover {
+    background-color: #DDD;
+}
+
+/* Filter form styling */
+.filter-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    width: 35%;
+}
+
+.filter-form label {
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    margin-right: 10px;
+    color: #342E37;
+}
+
+.filter-form select {
+    padding: 10px;
+    border: 1px solid #EEE;
+    border-radius: 5px;
+    margin-right: 20px;
+    font-family: 'Lato', sans-serif;
+}
+
+.filter-form .button {
+    padding: 10px 20px;
+    background-color: #3C91E6;
+    color: #F9F9F9;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.filter-form .button:hover {
+    background-color: #342E37;
+    color: #F9F9F9;
+}
+
+/* Action link styling */
+.action-links {
+    padding: 10px 20px;
+    background-color: #3C91E6;
+    color: #F9F9F9;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.action-links:hover {
+    background-color: #342E37;
+    color: #F9F9F9;
+}

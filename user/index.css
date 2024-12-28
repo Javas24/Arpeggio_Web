@@ -1,0 +1,310 @@
+*  {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    padding: 1.5rem 9%;
+    background-color: white;
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    
+}
+
+header .logo img {
+    color: #b60d0d;
+    width: 90px;
+    height: 55px;
+    object-fit: cover;
+}
+
+header nav {
+    position: absolute;
+    top: 90px;
+    left: -110%;
+    width: 100%;
+    transition: all 0.3s;
+    padding: 20px 9%;
+    background-color: white;
+    overflow: hidden;
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.2);
+}
+
+header nav.open {
+    left: 0;
+}
+
+header ul {
+    list-style: none;
+}
+
+header nav ul li a {
+    display: inline-block;
+    text-decoration: none;
+    color: #666;
+    padding: 20px;
+    margin-bottom: 5px;
+    width: 100%;
+    transition: all 0.3s;
+    font-weight: bold;
+    font-size: 1.2rem;
+    background-color:  #eee;
+    border-radius: 5px;
+    letter-spacing: 1px;
+}
+
+header nav ul li a.active,
+header nav ul li a:hover {
+    color: white;
+    background-color:  #b60d0d;
+}
+
+header #hamburgerButton {
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #b60d0d
+}
+
+section {
+    background-color: white;
+    min-height: 100vh;
+}
+
+section:nth-child(even) {
+    background-color: #eee;
+}
+
+.tentang {
+    padding: 8rem 2.8rem 9%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.tentang .image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tentang .image img {
+    width: 70%;
+}
+
+.tentang .content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tentang .content h3 {
+    color: #b60d0d;
+    font-size: 2rem;
+    padding: .5rem 0;
+}
+
+.tentang .content p {
+    color: #666;
+    font-size: 1.5rem;
+}
+
+.tentang .content .icons-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    margin-top: .5rem;
+}
+
+.tentang .content .icons {
+    background: #eee;
+    border-radius: .5rem;
+    border: .1rem solid rgba(0, 0, 0, .2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-direction: 1 1 17rem;
+    padding: 1.5rem 1rem;
+}
+
+.makanan,
+.minuman,
+footer {
+    padding: 2.8rem 9%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.heading h3 {
+    color: #b60d0d;
+    font-size: 1.5rem;
+}
+
+.heading h2 {
+    color: #907420;
+    font-size: 2rem;
+}
+
+.card-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px 20px;
+}
+
+.card-container .card {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    gap: 20px;
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.2);
+}
+
+.card-container .card .image {
+    width: 100%;
+    height: 18rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-container .card img {
+    height: 100%;
+    width: 100%;
+    border-radius: 0.5rem;
+    object-fit: cover;
+}
+
+.card-container .card .content {
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-container .card .content h2 {
+    text-transform: capitalize;
+    margin: 0;    
+    font-size: 1.5rem;
+    color: #b60d0d;
+}
+
+.card-container .card .content p {
+    color: #666;
+}
+
+.card-container .card .content .deskripsi {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.card-container .card .content .details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-container .card .content .details .harga {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #907420;
+}
+
+.button {
+    background-color: #b60d0d;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    text-decoration: none;
+    width: fit-content;
+}
+
+footer {
+    background: #b60d0d;
+}
+
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+}
+
+.footer .box-container .box h3 {
+    padding: .5rem 0;
+    font-size: 1.5rem;
+    color: #ccc;
+}
+
+.footer .box-container .box a {
+    display: block;
+    padding: .5rem 0;
+    font-size: 1rem;
+    color: #eee;
+}
+
+.footer .box-container .box a:hover {
+    color: #907420;
+    text-decoration: underline;
+}
+
+  
+@media (min-width: 768px) {
+    header nav {
+        position: static;
+        box-shadow: none;
+        padding: 0;
+        width: fit-content;
+    }
+    
+    header nav ul {
+        gap: 5px;
+        display: flex;
+    }
+
+    header nav ul li a {
+        padding: 5px 10px 7px;
+        background-color: transparent;
+    }
+
+    header #hamburgerButton {
+        display: none;
+    }
+
+    .tentang {
+        grid-template-columns: 1fr 1fr;
+    }
+}
