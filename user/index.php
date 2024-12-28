@@ -4,14 +4,6 @@ include '../config/db.php';
 $stmt = $pdo->query("SELECT * FROM produk_gitar");
 $produk_gitar = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-function getAverageRating($pdo, $produk_id)
-{
-    $stmt = $pdo->prepare("SELECT AVG(rating) as average_rating FROM reviews WHERE menu_id = ? AND status = 1");
-    $stmt->execute([$produk_id]);
-    $result = $stmt->fetch(PDO::FETCH_ASSOC);
-    return $result['average_rating'];
-}
-
 function formatRupiah($angka)
 {
     return "Rp " . number_format($angka, 0, ',', '.');
@@ -63,8 +55,6 @@ function formatRupiah($angka)
                         </div>
                         <div class="content">
                             <h2><?=htmlspecialchars($produk['nama'])?></h2>
-                            <?php $average_rating = getAverageRating($pdo, $produk['id']);?>
-                            <p class="rating">Rating: <?=$average_rating ? number_format($average_rating, 1) : 'Belum memiliki rating'?></p>
                             <p class="stok">Stok: <?=htmlspecialchars($produk['stok']) ? 'Tersedia' : 'Kosong'?></p>
                             <p class="deskripsi"><?=htmlspecialchars($produk['deskripsi'])?></p>
                             <div class="details">
