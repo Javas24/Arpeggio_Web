@@ -28,8 +28,7 @@ header .logo {
 }
 
 header .logo img {
-    color: #b60d0d;
-    width: 90px;
+    color: #FEA508;
     height: 55px;
     object-fit: cover;
 }
@@ -72,7 +71,7 @@ header nav ul li a {
 header nav ul li a.active,
 header nav ul li a:hover {
     color: white;
-    background-color:  #b60d0d;
+    background-color:  #FEA508;
 }
 
 header #hamburgerButton {
@@ -81,7 +80,7 @@ header #hamburgerButton {
     font-size: 2rem;
     cursor: pointer;
     transition: all 0.3s;
-    color: #b60d0d
+    color: #FEA508
 }
 
 section {
@@ -118,7 +117,7 @@ section:nth-child(even) {
 }
 
 .tentang .content h3 {
-    color: #b60d0d;
+    color: #FEA508;
     font-size: 2rem;
     padding: .5rem 0;
 }
@@ -164,7 +163,7 @@ footer {
 }
 
 .heading h3 {
-    color: #b60d0d;
+    color: #FEA508;
     font-size: 1.5rem;
 }
 
@@ -217,7 +216,7 @@ footer {
     text-transform: capitalize;
     margin: 0;    
     font-size: 1.5rem;
-    color: #b60d0d;
+    color: #FEA508;
 }
 
 .card-container .card .content p {
@@ -245,7 +244,7 @@ footer {
 }
 
 .button {
-    background-color: #b60d0d;
+    background-color: #FEA508;
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 0.3rem;
@@ -254,7 +253,7 @@ footer {
 }
 
 footer {
-    background: #b60d0d;
+    background: #FEA508;
 }
 
 .footer .box-container {

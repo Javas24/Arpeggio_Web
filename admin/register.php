@@ -47,13 +47,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
         <form class="input-form" method="post">
-            <h1>Registarsi</h1>
+            <h1>Registrasi</h1>
             <input type="text" name="username" placeholder="Username" required><br>
             <input type="text" name="nama" placeholder="nama" required><br>
             <input type="password" name="password" placeholder="Password" required><br>
             <div class="space-between">
                 <a class="cancel-button" href="login.php">Kembali</a>
-                <button class="submit-button" type="submit">Registarsi</button>
+                <button class="submit-button" type="submit">Registrasi</button>
             </div>
         </form>
         <!-- Error message -->
