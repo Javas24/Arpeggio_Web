@@ -20,13 +20,10 @@ if (!isset($_SESSION['admin'])) {
 $admin_id = $_SESSION['admin']['id'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id = 'menu-' . time();
     $nama = $_POST['nama'];
     $harga = $_POST['harga'];
     $deskripsi = $_POST['deskripsi'];
     $stok = $_POST['stok'];
-    $kategori = $_POST['kategori'];
-    $status = isset($_POST['status']) ? 1 : 0;
 
     // Handle image upload
     $target_dir = "../assets/images/";
@@ -70,17 +67,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
             $image_url = 'assets/images/' . basename($_FILES["image"]["name"]);
 
-            $stmt = $pdo->prepare("INSERT INTO menus (id, nama, harga, deskripsi, image_url, stok, kategori, status, admin_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            if ($stmt->execute([$id, $nama, $harga, $deskripsi, $image_url, $stok, $kategori, $status, $admin_id])) {
+            $stmt = $pdo->prepare("INSERT INTO guitars (nama, harga, deskripsi, image_url, stok, admin_id) VALUES (?, ?, ?, ?, ?, ?)");
+            if ($stmt->execute([$nama, $harga, $deskripsi, $image_url, $stok, $admin_id])) {
                 // Tambahkan entri riwayat
                 $history_id = 'history-' . time();
-                $aktivitas = "Menambahkan menu baru";
+                $aktivitas = "Menambahkan gitar baru";
                 $stmt_history = $pdo->prepare("INSERT INTO history (id, admin_id, aktivitas) VALUES (?, ?, ?)");
                 $stmt_history->execute([$history_id, $admin_id, $aktivitas]);
 
                 header("Location: index.php");
             } else {
-                echo "Error: Could not create menu.";
+                echo "Error: Could not create guitar entry.";
             }
         } else {
             echo "Sorry, there was an error uploading your file.";
@@ -94,32 +91,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menambahkan Menu</title>
+    <title>Menambahkan Gitar</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <form class="input-form" method="post" enctype="multipart/form-data">
-        <h1>Menambahkan Menu</h1>
+        <h1>Menambahkan Gitar</h1>
         Nama:<br>
-        <input type="text" placeholder="Nama makanan" name="nama" required><br>
+        <input type="text" placeholder="Nama gitar" name="nama" required><br>
         Harga:<br>
-        <input type="number" placeholder="Harga makanan" name="harga" required><br>
+        <input type="number" placeholder="Harga gitar" name="harga" required><br>
         Deskripsi:<br>
-        <textarea name="deskripsi" placeholder="Deskripsi makanan" required></textarea><br>
+        <textarea name="deskripsi" placeholder="Deskripsi gitar" required></textarea><br>
         Image:<br>
         <input type="file" name="image" required><br>
         Stok:<br>
         <input type="number" placeholder="Jumlah stok" name="stok" required><br>
-        Kategori:
-        <select name="kategori" required>
-            <option>Makanan</option>
-            <option>Minuman</option>
-        </select><br>
-        Status: <input type="checkbox" name="status"><br>
-        <div class="space-between">
-            <a class="cancel-button" href="index.php">Kembali</a>
-            <button class="submit-button" type="submit">Tambahkan</button>
-        </div>
+        <button type="submit">Tambahkan</button>
     </form>
 </body>
 </html>
