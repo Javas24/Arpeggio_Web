@@ -8,7 +8,7 @@ if (isset($_GET['logout'])) {
     $admin_id = $_SESSION['admin']['id'];
 
     // Masukkan entri history
-	$history_id = 'history-' . time();
+    $history_id = 'history-' . time();
     $aktivitas = "Logout";
     $stmt_history = $pdo->prepare("INSERT INTO history (id, admin_id, aktivitas) VALUES (?, ?, ?)");
     $stmt_history->execute([$history_id, $admin_id, $aktivitas]);
@@ -24,11 +24,11 @@ if (isset($_GET['logout'])) {
 if (!isset($_SESSION['admin'])) {
     $admin_id = $_SESSION['admin']['id'];
     $username = $_SESSION['admin']['username'];
-    
+
     $stmt = $pdo->prepare("SELECT * FROM admins WHERE username = ? AND id = ?");
     $stmt->execute([$username, $admin_id]);
     $admin = $stmt->fetch(PDO::FETCH_ASSOC);
-    
+
     if (!$admin) {
         unset($_SESSION['admin']);
         header("Location: login.php");
@@ -86,8 +86,8 @@ $menus = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <label for="status">Filter by Status:</label>
             <select name="status" id="status">
                 <option value="">All</option>
-                <option <?= isset($_POST['status']) && $_POST['status'] == '1' ? 'selected' : '' ?> value="1">Ditampilkan</option>
-                <option <?= isset($_POST['status']) && $_POST['status'] == '0' ? 'selected' : '' ?> value="0">Tidak Ditampilkan</option>
+                <option <?=isset($_POST['status']) && $_POST['status'] == '1' ? 'selected' : ''?> value="1">Ditampilkan</option>
+                <option <?=isset($_POST['status']) && $_POST['status'] == '0' ? 'selected' : ''?> value="0">Tidak Ditampilkan</option>
             </select>
             <input type="submit" class="button" name="filter" value="Filter">
         </form>
@@ -111,21 +111,21 @@ $menus = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <tbody>
                 <?php foreach ($menus as $menu): ?>
                 <tr>
-                    <td><?= htmlspecialchars($menu['nama']) ?></td>
-                    <td><?= htmlspecialchars($menu['harga']) ?></td>
-                    <td><?= htmlspecialchars($menu['deskripsi']) ?></td>
-                    <td><img src="/uas/<?= htmlspecialchars($menu['image_url']) ?>"></td>
-                    <td><?= htmlspecialchars($menu['stok']) ?></td>
-                    <td><?= htmlspecialchars($menu['kategori']) ?></td>
-                    <td><?= htmlspecialchars($menu['admin_name']) ?></td>
-                    <td><?= $menu['status'] ? 'Ditampilkan' : 'Tidak Ditampilkan' ?></td>
+                    <td><?=htmlspecialchars($menu['nama'])?></td>
+                    <td><?=htmlspecialchars($menu['harga'])?></td>
+                    <td><?=htmlspecialchars($menu['deskripsi'])?></td>
+                    <td><img src="/uas/<?=htmlspecialchars($menu['image_url'])?>"></td>
+                    <td><?=htmlspecialchars($menu['stok'])?></td>
+                    <td><?=htmlspecialchars($menu['kategori'])?></td>
+                    <td><?=htmlspecialchars($menu['admin_name'])?></td>
+                    <td><?=$menu['status'] ? 'Ditampilkan' : 'Tidak Ditampilkan'?></td>
                     <td>
-                        <a href="edit_menu.php?id=<?= htmlspecialchars($menu['id']) ?>" class="action-links">Edit</a>
+                        <a href="edit_menu.php?id=<?=htmlspecialchars($menu['id'])?>" class="action-links">Edit</a>
                     </td>
                     <td>
-                    <a href="hapus_menu.php?id=<?= htmlspecialchars($menu['id']) ?>" class="action-links">Hapus</a></td>
+                    <a href="hapus_menu.php?id=<?=htmlspecialchars($menu['id'])?>" class="action-links">Hapus</a></td>
                 </tr>
-                <?php endforeach; ?>
+                <?php endforeach;?>
             </tbody>
         </table>
     </div>
