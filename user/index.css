@@ -240,7 +240,7 @@ footer {
     color: white;
     text-align: center;
     padding: 20px 0;
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100%;
 }
@@ -248,6 +248,7 @@ footer {
 footer .footer-content p {
     margin: 0;
     font-weight: bold;
+    position: relative;
 }
  
 @media (min-width: 768px) {

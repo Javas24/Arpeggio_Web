@@ -1,2 +1,2 @@
 <?php
-header("Location: admin/index.php");
+header("Location: user/index.php");
