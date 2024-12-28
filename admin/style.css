@@ -161,7 +161,6 @@ nav .log-out-nav a:hover {
     border: 1px solid #342E37;
 }
 
-/* Modal styling */
 .modal {
     display: none;
     position: fixed;
@@ -196,7 +195,7 @@ nav .log-out-nav a:hover {
     cursor: pointer;
 }
 
-/* Table styling */
+
 table {
     width: 100%;
     border-collapse: collapse;

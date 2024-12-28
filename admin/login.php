@@ -1,19 +1,18 @@
 <?php
 session_start();
 
-// Jika pengguna sudah login, arahkan ke halaman index
 if (isset($_SESSION['admin'])) {
     $admin_id = $_SESSION['admin']['id'];
     $username = $_SESSION['admin']['username'];
-    
+
     $stmt = $pdo->prepare("SELECT * FROM admins WHERE username = ? AND id = ?");
     $stmt->execute([$username, $admin_id]);
     $admin = $stmt->fetch(PDO::FETCH_ASSOC);
-    
+
     if ($admin) {
         header("Location: index.php");
         exit();
-    }    
+    }
 }
 
 include '../config/db.php';
@@ -22,23 +21,23 @@ include '../config/db.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = md5($_POST['password']);
-    
+
     $stmt = $pdo->prepare("SELECT * FROM admins WHERE username = ? AND password = ?");
     $stmt->execute([$username, $password]);
     $admin = $stmt->fetch(PDO::FETCH_ASSOC);
-    
+
     if ($admin) {
         $_SESSION['admin']['username'] = $admin['username'];
         $_SESSION['admin']['id'] = $admin['id'];
-        
+
         // Mencatat aktivitas login ke tabel history
         $history_id = 'history-' . time();
         $aktivitas = "Telah melakukan login";
         $admin_id = $admin['id'];
-        
+
         $stmt_history = $pdo->prepare("INSERT INTO history (id, admin_id, aktivitas) VALUES (?, ?, ?)");
         $stmt_history->execute([$history_id, $admin_id, $aktivitas]);
-        
+
         header("Location: index.php");
         exit();
     } else {
@@ -64,8 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <button type="submit">Login</button>
         </form>
         <!-- Error message -->
-        <?php if(isset($error)) { ?>
-            <p class="error"><?= $error ?></p>
-        <?php } ?>
+        <?php if (isset($error)) {?>
+            <p class="error"><?=$error?></p>
+        <?php }?>
 </body>
 </html>
